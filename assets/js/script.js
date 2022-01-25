@@ -12,6 +12,41 @@ var choiceD = document.getElementById("D");
 var timer;
 var timerCount;
 
+let quizQuestions = [
+    {
+        questions: "Which is of the follwing is NOT a logical operator used in Javascript?",
+        choiceA: "&&",
+        choiceB: "%",
+        choiceC: "||",
+        choiceD: "!",
+        answer: "B",
+    },
+    {
+        questions: "What is an Array?",
+        choiceA: "An object that can store multiple values at once",
+        choiceB: "A set of statements that performs a task or calculates a value",
+        choiceC: "A procedure in JavaScript that waits for an event to occur",
+        choiceD: "A basic control statement that allows you to loop through the properties of an object",
+        answer: "A",
+    },
+    {
+        questions: "What is a valid event that you can use with an event listener?",
+        choiceA: "keypush",
+        choiceB: "mouseup",
+        choiceC: "null",
+        choiceD: "chick",
+        answer: "B",
+    },
+    {
+        questions: "If const cars = ['Ford', 'Audi', 'Subaru', 'Toyota']: then what is cars[3]?",
+        choiceA: "Subaru",
+        choiceB: "Ford",
+        choiceC: "Audi",
+        choiceD: "Toyota",
+        answer: "D",
+    },
+];
+
 function startGame() {
     timerCount = 60;
     startTimer()
