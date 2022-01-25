@@ -5,3 +5,15 @@
 .start-button {
     margin-left: 48%;
 }
+
+.quiz-conatiner {
+    width: 500px;
+    max-width: 50%;
+    background-color: whitesmoke;
+}
+
+.btn {
+    border: 1px solid;
+    background-color: purple;
+    color: white;
+}
