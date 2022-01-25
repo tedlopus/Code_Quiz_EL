@@ -6,15 +6,14 @@ var timerCount;
 
 function startGame() {
     timerCount = 60;
-    setTime()
+    startTimer()
 }
 
-function setTime() {
+function startTimer() {
     // Sets interval in variable
-    var timerInterval = setInterval(function() {
+    timer = setInterval(function() {
       timerCount--;
       timerEl.textContent = timerCount;
-  
       if(timerCount === 0) {
         // Stops execution of action at set interval
         clearInterval(timerInterval);
