@@ -1,9 +1,13 @@
 var timerEl = document.querySelector(".timer-count");
 var startButton = document.querySelector(".start-button");
 var start = document.getElementById("start");
-var quiz = document
-
-
+var quiz = document.getElementById("quiz");
+var questions = document.getElementById("questions");
+var choice = document.querySelector(".choices");
+var choiceA = document.getElementById("A");
+var choiceB = document.getElementById("B");
+var choiceC = document.getElementById("C");
+var choiceD = document.getElementById("D");
 
 var timer;
 var timerCount;
