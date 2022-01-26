@@ -4,11 +4,16 @@ var startButton = document.getElementById("start-btn");
 var start = document.getElementById("start");
 var questions = document.getElementById("question-container");
 var question = document.getElementById("question");
-var choice = document.getElementById("choice-buttons");
-var currentQuestion;
+//var choice = document.getElementById("choice-buttons");
+var choiceA = document.getElementById("choiceA");
+var choiceB = document.getElementById("choiceB");
+var choiceC = document.getElementById("choiceC");
+var choiceD = document.getElementById("choiceD");
+var currentQuestion = 0;
 var timer;
 var timerCount;
-
+questions.style.display = "none";
+// Array that contains the questions and posisble answers for each question
 let quizQuestions = [
   {
     question:
@@ -48,14 +53,14 @@ let quizQuestions = [
     ],
   },
 ];
-
+// Function that starts the game
 function startGame() {
   startButton.classList.add('hide');
   timerCount = 60;
   startTimer();
   initiateQuestion();
 }
-
+//Function that starts the timer
 function startTimer() {
   // Sets interval in variable
   timer = setInterval(function () {
@@ -71,20 +76,26 @@ function startTimer() {
 }
 //Function that starts the questions after the user has clicked start quiz
 function initiateQuestion() {
+    questions.style.display = "block";
     nextQuestion(quizQuestions[currentQuestion]);
-    currentQuestion++;
+    //currentQuestion++;
 }
 // Function that sends the user to the next question
 function nextQuestion(q) {
-    questions.innerText = q.question;
-    for (let i = 0; i < q.choices.length; i++) {
-        choice.innerText = q.choices[i].text;
+    question.innerText = q.question;
+    
+        choiceA.innerText = q.choices[0].text;
+        choiceA.setAttribute("data-correct", q.choices[0].correct);
 
-        if (q.choices[i].correct) {
-            choice.dataset.correct = q.choices[i].correct;
-            console.log(choice.dataset.correct)
-        }
-    }
+        choiceB.innerText = q.choices[1].text;
+        choiceB.setAttribute("data-correct", q.choices[1].correct);
+
+        choiceC.innerText = q.choices[2].text;
+        choiceC.setAttribute("data-correct", q.choices[2].correct);
+        
+        choiceD.innerText = q.choices[3].text;
+        choiceD.setAttribute("data-correct", q.choices[3].correct);
+        
 }
 
 //Send a message for when the timer runs out - also populate the word

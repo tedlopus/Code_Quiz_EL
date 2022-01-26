@@ -31,15 +31,16 @@
     <!-- This is the entire div for the quiz part of this html code and it contains the questions and choices to make it multiple choice like in the example -->
     <div class="quiz-container">
       <!-- This will be where each question populates for the quiz -->
-      <div id="question-container" class="hide">Question</div>
-      <div id="question"></div>
+      <div id="question-container" class="hide">Question
+      <h3 id="question"></h3>
       <!-- These are the divs that will represent the choices for each multiple choice question -->
       <div id="choice-buttons">
-        <button class="btn" id="choiceA">A</button>
-        <button class="btn" id="choiceB">B</button>
-        <button class="btn" id="choiceC">C</button>
-        <button class="btn" id="choiceD">D</button>
+        <button class="btn" id="choiceA" data-correct="">A</button>
+        <button class="btn" id="choiceB" data-correct="">B</button>
+        <button class="btn" id="choiceC" data-correct="">C</button>
+        <button class="btn" id="choiceD" data-correct="">D</button>
       </div>
+    </div>
     </div>
     </card>
     </main>
