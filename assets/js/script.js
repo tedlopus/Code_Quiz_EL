@@ -9,9 +9,16 @@ var choiceA = document.getElementById("choiceA");
 var choiceB = document.getElementById("choiceB");
 var choiceC = document.getElementById("choiceC");
 var choiceD = document.getElementById("choiceD");
+choiceA.addEventListener("click", checkAnswer);
+choiceB.addEventListener("click", checkAnswer);
+choiceC.addEventListener("click", checkAnswer);
+choiceD.addEventListener("click", checkAnswer);
 var currentQuestion = 0;
 var timer;
 var timerCount;
+var score = 0;
+var verify = document.getElementById("verify");
+var scoreEl = document.getElementById("score");
 questions.style.display = "none";
 // Array that contains the questions and posisble answers for each question
 let quizQuestions = [
@@ -55,7 +62,7 @@ let quizQuestions = [
 ];
 // Function that starts the game
 function startGame() {
-  startButton.classList.add('hide');
+  startButton.style.display = "none";
   timerCount = 60;
   startTimer();
   initiateQuestion();
@@ -66,9 +73,11 @@ function startTimer() {
   timer = setInterval(function () {
     timerCount--;
     timerEl.textContent = timerCount;
-    if (timerCount === 0) {
+    if (timerCount < 0) {
       // Stops execution of action at set interval
       clearInterval(timer);
+      timerEl.textContent = "You're out of time!";
+
       // Calls function to create and append image
       sendMessage();
     }
@@ -98,9 +107,33 @@ function nextQuestion(q) {
         
 }
 
+function checkAnswer() {
+    var right = this.getAttribute("data-correct");
+    if (right == "true")   {
+        score += 10;
+        verify.textContent = "You got it right!";
+    } else {
+        timerCount -= 5
+        verify.textContent = "You got it wrong!";
+    }
+    if (currentQuestion < quizQuestions.length - 1) {
+        currentQuestion++;
+        nextQuestion(quizQuestions[currentQuestion]);
+    }
+    else {
+        clearInterval(timer);
+        timerEl.textContent = "You've finished the quiz!";
+
+      // Calls function to create and append image
+      sendMessage();
+    }
+}
+
 //Send a message for when the timer runs out - also populate the word
 function sendMessage() {
-  timerEl.textContent = "You're out of time!";
+    questions.style.display = "none";
+    console.log("Score", score + timerCount);
+    
 }
 
 // Event listener that starts the game when the start game button is clicked.
